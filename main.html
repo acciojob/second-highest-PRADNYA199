@@ -10,19 +10,25 @@
 	<script>
 		function secondHighest(arr) {
 			//Write your code here
-			arr=arr.map(Number);
-			if(arr.length<2){
-				return -Infinity;
-			}
-			let UniquickElement=new set(arr);
-			const sortUniquick=Array.form(UniquickElement).sort((a,b)=>b-a);
-			if(sortUniquick<2)
-			{
-				return -Infinity;
-			}
-			return sortUniquick(1);
-		}
+			arr = arr.map(Number);
 
+        // If the array is empty or has only one element
+        if (arr.length < 2) {
+            return -Infinity;
+        }
+
+        // Use a Set to remove duplicate values
+        const uniqueElements = new Set(arr);
+
+        // Convert the Set to an array and sort it in descending order
+        const sortedUnique = Array.from(uniqueElements).sort((a, b) => b - a);
+
+        // If there are fewer than two unique elements
+        if (sortedUnique.length < 2) {
+            return -Infinity;
+        }
+			return sortedUnique[1];
+    }
 		function Main() {
 			var n = prompt("Enter the number of elements");
 			var arr = [];
